@@ -76,6 +76,7 @@ S -> Sa b
 The output grammar (for each test case) is printed to **standard output (stdout)** with the same format:
 
 S -> bZ
+
 Z -> aZ e
 
 Each test case is separated by a blank line.
