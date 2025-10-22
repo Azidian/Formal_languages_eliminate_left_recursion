@@ -56,8 +56,11 @@ The input must be given via **standard input (stdin)**.
 Like the next one:
 
 n
+
 k
+
 A -> α1 α2 ...
+
 B -> β1 β2 ...
 
 Where:
