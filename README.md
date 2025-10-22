@@ -40,10 +40,16 @@ for i from 1 to n:
 This is handled in the main eliminate_left_recursion function. After this double loop, any remaining left recursion for A_i must be direct.
 
 2. Elimination of Direct Left Recursion
-   After the first phase, the productions for A_i are processed to remove direct left recursion. The productions for A_i are grouped into two forms: Recursive: A_i -> A_i \alpha_1 | A_i \alpha_2 | ...$Non-recursive: $A_i \rightarrow \beta_1 | \beta_2 | ...$These productions are replaced by introducing a new nonterminal (e.g., $Z$, $Y$, etc., per the assignment requirement 12):$A_i \rightarrow \beta_1 Z | \beta_2 Z | ...$$Z \rightarrow \alpha_1 Z | \alpha_2 Z | ... | e$This transformation is handled by the eliminate_direct_left_recursion function, which creates the new nonterminal and its corresponding rules. The empty string e is always included for the new nonterminal to terminate the recursion13.
+   After the first phase, the productions for A_i are processed to remove direct left recursion. The productions for A_i are grouped into two forms:
 
+   - Recursive: A_i -> A_iα1 | A_iα1  | ...
+   - Non-recursive: A_i -> β_1 | β_2 | ...
 
+     These productions are replaced by introducing a new nonterminal (e.g., $Z$, $Y$, etc., per the assignment requirement 12):
+     A_i -> β_1Z | β_2Z | ...
+     Z -> α1Z | α2Z | ... | e
 
+     This transformation is handled by the eliminate_direct_left_recursion function, which creates the new nonterminal and its corresponding rules. The empty string e is always included for the new nonterminal to terminate the recursion.
 
 ## Input Format
 The input must be given via **standard input (stdin)**.
@@ -65,30 +71,23 @@ Example:
 1
 S -> Sa b
 
-
 ---
-
 ## Output Format
 The output grammar (for each test case) is printed to **standard output (stdout)** with the same format:
 
 S -> bZ
 Z -> aZ e
 
-
 Each test case is separated by a blank line.
-
----
 
 ## How to Run
 
-### Option 1: Direct execution
-```bash
+1. Run the script:
+Bash
 python main.py
-Then type or paste the grammar input.
-Press Ctrl +D (Linux/macOS) or Ctrl + Z followed by Enter (Windows) to end input.
 
-The program outputs an equivalent grammar **without left recursion**, formatted as described in the assignment specification.
-
+2. The program will wait for input. Type or paste the grammar input directly into the terminal.
+3. Press Ctrl+D (Linux/macOS) or Ctrl+Z followed by Enter (Windows) to signal the end of the input.
 
 # References: 
 
